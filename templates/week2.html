@@ -1,0 +1,85 @@
+<html> 
+<head> 
+<title>Week 2 Homework Assignment</title> 
+</head> 
+<body style = "font-family:helvetica">
+<h3>Euro-Style Boardgame Knowledge Survey</h3> <br>
+	
+	{%if message%}
+	<fieldset> 
+	<b>{{message}}</b>
+	</fieldset> 
+	{%endif%}
+
+	
+	<fieldset> 
+	<legend>Basic Information</legend>
+			<form action = "/" method = "post"> 
+			<input type = "hidden" name = "action" value = "add_results">
+			What is your name: 
+			<input type = "text" name = "name" required> 
+			<br><br>
+			What is your favorite game?
+			<input type = "text" name = "fav_game" required> 
+			</fieldset><br><fieldset> 
+			<legend> Ticket to Ride: America</legend>
+			What is the longest single piece of track you can claim: 
+			<input type = "number" name = "num_track" min = "0" max = "15" required> 
+			</fieldset><br><fieldset> 
+			<legend>Settlers of Catan</legend>
+			Which resource isn't needed on the island? 
+			<br><br>
+			<input type = "radio" name = "resource" value = "sheep" checked="checked">
+			sheep<br>
+			<input type = "radio" name = "resource" value = "wood">
+			wood<br>
+			<input type = "radio" name = "resource" value = "water">
+			water<br>
+			<input type = "radio" name = "resource" value = "brick">
+			brick<br>
+			<input type = "radio" name = "resource" value = "wheat">
+			wheat<br>
+			<input type = "radio" name = "resource" value = "ore">
+			ore<br> 
+			</fieldset><br><fieldset> 
+			<legend>Carcassone</legend>
+			Who will you not find in the French countryside? <br><br>
+			<select name = "meeple">
+			<option value = "farmer">farmer</option> <br>
+			<option value = "beggar">beggar</option> <br>
+			<option value = "knight">knight</option> <br>
+			<option value = "monk">monk</option> <br>
+			<option value = "thief">thief</option> <br>
+			</select>
+			<br>
+			</fieldset><br><fieldset> 
+			<legend>Dominion</legend>
+			Who can not reside in your domain? <br><br>
+			<input type = "checkbox" name = "residents" value = "abbot">abbot <br>
+			<input type = "checkbox" name = "residents" value = "bureaucrat">bureaucrat <br>
+			<input type = "checkbox" name = "residents" value = "soldier">soldier <br>
+			<input type = "checkbox" name = "residents" value = "spy">spy <br>
+			<input type = "checkbox" name = "residents" value = "witch">witch <br>
+			</fieldset>
+			<br>
+			<input type="submit" value ="Save Answers">
+			<br><br>
+			</form>	
+			
+			
+			
+	</fieldset> 
+
+{%if responders|length > 0 %}
+	<fieldset> 
+	<h4>View Responses </h4> 
+	{% for res in responders %}
+	<a href='/view?key={{res.key}}&type=responders'>{{res.name}}</a>
+	{% endfor %}
+	</fieldset> 
+	{% endif %}
+	
+			
+</body>
+
+</html> 

@@ -1,0 +1,54 @@
+<html> 
+
+<body style = "font-family:helvetica">
+<h3>Euro-Style Boardgame Knowledge Survey</h3> <br>
+<b>Results for: {{name}}</b>
+
+	<a href='/edit?key={{urlsafe_key}}&type=responders'>Edit</a>
+
+<fieldset> 
+<legend>General Info</legend> 
+Favorite Game: {{fav_game}} <br> 
+</fieldset>
+<br>
+<fieldset> 
+<legend>Ticket to Ride: America</legend> 
+What is the longest single piece of track you can claim: 
+<div {%if  num_track != 6%} style = "color:red" {%endif%}>
+{{num_track}}
+</div>
+</fieldset> 
+<br>
+<fieldset> 
+<legend>Settlers of Catan</legend> 
+What resource is not needed on the island: 
+<div {%if  resource != 'water'%} style = "color:red" {%endif%}>
+{{resource}}
+</div>
+</fieldset> 
+<br>
+<fieldset> 
+<legend>Cascassone</legend> 
+Who will you not find in the French countryside: 
+<div {%if  meeple != 'beggar'%} style = "color:red" {%endif%}>
+{{meeple}}
+</div>
+</fieldset> 
+<br>
+<fieldset> 
+<legend>Dominion</legend> 
+Who can not reside in your domain: 
+{%if residents|length > 0 %}
+
+	{% for res in residents %}
+	<div {%if  res == 'bureaucrat' or res == 'spy' or res == 'witch' or res == 'woodcutter' or res == 'chancellor'%} style = "color:red" {%endif%}>
+{{res}} 
+</div>
+	{% endfor %}
+	{% endif %}
+
+</fieldset> 
+
+</body>
+
+</html>

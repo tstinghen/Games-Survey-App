@@ -1,0 +1,135 @@
+<html> 
+<html> 
+<head> 
+<title>Week 2 Homework Assignment</title> 
+</head> 
+<body style = "font-family:helvetica">
+<h3>Edit Euro-Style Boardgame Knowledge Survey Answers</h3> <br>
+	
+	<fieldset> 
+	<legend>Basic Information</legend>
+			<form action = "/edit?key={{urlsafe_key}}&type=responders" method = "post"> 
+			<input type = "hidden" name = "action" value = "edit_results">
+			<input type = "hidden" name = "key" value = {{urlsafe_key}}>
+			What is your name: 
+			<input type = "text" name = "name" value = {{name}} required> 
+			<br><br>
+			What is your favorite game?
+			<input type = "text" name = "fav_game" value = {{fav_game}} required> 
+			</fieldset><br><fieldset> 
+			<legend> Ticket to Ride: America</legend>
+			What is the longest single piece of track you can claim: 
+			<input type = "number" name = "num_track" min = "0" max = "15" value = {{num_track}} required> 
+			</fieldset><br><fieldset> 
+			<legend>Settlers of Catan</legend>
+			Which resource isn't needed on the island? 
+			<br><br>
+			<input type = "radio" name = "resource" value = "sheep" {%if resource == 'sheep'%} checked = 'checked' {%endif%}>
+			sheep<br>
+			<input type = "radio" name = "resource" value = "wood" {%if resource == 'wood'%} checked = 'checked' {%endif%}>
+			wood<br>
+			<input type = "radio" name = "resource" value = "water" {%if resource == 'water'%} checked = 'checked' {%endif%}>
+			water<br>
+			<input type = "radio" name = "resource" value = "brick" {%if resource == 'brick'%} checked = 'checked' {%endif%}>
+			brick<br>
+			<input type = "radio" name = "resource" value = "wheat" {%if resource == 'wheat'%} checked = 'checked' {%endif%}>
+			wheat<br>
+			<input type = "radio" name = "resource" value = "ore" {%if resource == 'ore'%} checked = 'checked' {%endif%}>
+			ore<br> 
+			</fieldset><br><fieldset> 
+			<legend>Carcassone</legend>
+			Who will you not find in the French countryside? <br><br>
+			<select name = "meeple">
+			<option value = "farmer"{%if meeple == 'farmer'%} selected{%endif%}>farmer</option> <br>
+			<option value = "beggar"{%if meeple == 'beggar'%} selected{%endif%}>beggar</option> <br>
+			<option value = "knight"{%if meeple == 'knight'%} selected {%endif%}>knight</option> <br>
+			<option value = "monk"{%if meeple == 'monk'%} selected {%endif%}>monk</option> <br>
+			<option value = "thief"{%if meeple == 'thief'%} selected {%endif%}>thief</option> <br>
+			</select>
+			<br>
+			</fieldset><br><fieldset> 
+			<legend>Dominion</legend>
+			What types of people are not able to reside in your domain? <br><br>
+			<input type = "checkbox" name = "residents[]" value = "abbot"
+			{%if residents|length > 0 %}
+			{% for res in residents %}
+			{%if  res == 'abbot'%} checked = 'checked'{%endif%}
+			{% endfor %}
+			{% endif %}
+			>abbot <br>
+			<input type = "checkbox" name = "residents[]" value = "bureaucrat"{%if residents|length > 0 %}
+			{% for res in residents %}
+			{%if  res == 'bureaucrat'%} checked = 'checked'{%endif%}
+			{% endfor %}
+			{% endif %}
+			>bureaucrat <br>
+			<input type = "checkbox" name = "residents[]" value = "soldier"{%if residents|length > 0 %}
+			{% for res in residents %}
+			{%if  res == 'soldier'%} checked = 'checked'{%endif%}
+			{% endfor %}
+			{% endif %}
+			>soldier <br>
+			<input type = "checkbox" name = "residents[]" value = "spy"{%if residents|length > 0 %}
+			{% for res in residents %}
+			{%if  res == 'spy'%} checked = 'checked'{%endif%}
+			{% endfor %}
+			{% endif %}
+			>spy <br>
+			<input type = "checkbox" name = "residents[]" value = "witch"{%if residents|length > 0 %}
+			{% for res in residents %}
+			{%if  res == 'witch'%} checked = 'checked'{%endif%}
+			{% endfor %}
+			{% endif %}
+			>witch <br>
+			<input type = "checkbox" name = "residents[]" value = "magistrate"{%if residents|length > 0 %}
+			{% for res in residents %}
+			{%if  res == 'magistrate'%} checked = 'checked'{%endif%}
+			{% endfor %}
+			{% endif %}
+			>magistrate <br>
+			<input type = "checkbox" name = "residents[]" value = "chancellor"{%if residents|length > 0 %}
+			{% for res in residents %}
+			{%if  res == 'chancellor'%} checked = 'checked'{%endif%}
+			{% endfor %}
+			{% endif %}
+			>chancellor <br>
+			<input type = "checkbox" name = "residents[]" value = "sorcerer"{%if residents|length > 0 %}
+			{% for res in residents %}
+			{%if  res == 'sorcerer'%} checked = 'checked'{%endif%}
+			{% endfor %}
+			{% endif %}
+			>sorcerer <br>
+			<input type = "checkbox" name = "residents[]" value = "woodcutter"{%if residents|length > 0 %}
+			{% for res in residents %}
+			{%if  res == 'woodcutter'%} checked = 'checked'{%endif%}
+			{% endfor %}
+			{% endif %}
+			>woodcutter <br>
+			<input type = "checkbox" name = "residents[]" value = "paladin"{%if residents|length > 0 %}
+			{% for res in residents %}
+			{%if  res == 'paladin'%} checked = 'checked'{%endif%}
+			{% endfor %}
+			{% endif %}
+			>paladin <br>
+			<input type = "checkbox" name = "residents[]" value = "queen"{%if residents|length > 0 %}
+			{% for res in residents %}
+			{%if  res == 'queen'%} checked = 'checked'{%endif%}
+			{% endfor %}
+			{% endif %}
+			>queen <br>
+			</fieldset>
+			<br>
+			<input type="submit" value ="Save Changes">
+			<br><br>
+			</form>	
+			
+			
+			
+	</fieldset> 
+
+			
+</body>
+
+</html> 
+
+</html>
